@@ -16,29 +16,27 @@ export class AppComponent {
       children: [
         {
           title: 'Login',
-          link: '/login',
+          link: '/auth/login',
         },
         {
           title: 'Register',
-          link: '/register',
-        },
-        {
-          title: 'Request Password',
-          link: '/request-password',
+          link: '/auth/register',
         },
         {
           title: 'Reset Password',
-          link: '/reset-password',
+          link: '/auth/reset-password',
         },
       ],
     },
     {
       title: "Alerts",
-      link: '/alerts '
+      link: '/alerts',
+      icon: 'activity-outline'
     },
     {
       title: "Home",
-      link: '/home'
+      link: '/home',
+      icon: 'home-outline'
     },
 
 
