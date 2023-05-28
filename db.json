@@ -36,8 +36,11 @@
 
     }
   ],
-  "users": {
-    "name": "guest",
-    "password": "guest"
-  }
+  "users": [
+    {
+      "name": "guest",
+      "password": "guest"
+
+    }
+  ]
 }
