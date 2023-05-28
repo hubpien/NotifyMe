@@ -1,45 +1,32 @@
 {
-  "alerts": [
+  "crypto": [
     {
-      "type": [
+      "BTC": [
         {
-          "crypto": [
-            {
-              "BTC": [
-                {
-                  "id": 1,
-                  "order":"20"
-                },
-                {
-                  "id": 2,
-                  "order": "30"
-                }
-              ]
-            }
-          ]
+          "id": 1,
+          "order":"20"
         },
         {
-         "weather": [
-           {
-             "city":[
-               {
-                 "name": "Kraków",
-                 "temperature": "20"
-               }
-             ]
-           }
-         ]
+          "id": 2,
+          "order": "30"
         }
-
       ]
-
     }
+  ],
+  "weather": [
+     {
+       "city":[
+         {
+           "name": "Kraków",
+           "temperature": "20"
+         }
+       ]
+     }
   ],
   "users": [
     {
       "name": "guest",
       "password": "guest"
-
     }
   ]
 }
