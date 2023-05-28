@@ -1,7 +1,6 @@
 {
   "alerts": [
     {
-      "id": 1,
       "type": [
         {
           "crypto": [
