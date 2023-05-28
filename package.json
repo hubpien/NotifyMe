@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "generate": "node main/generateData.ts > main/db.json",
-    "server": "json-server --watch main/db.json"
+    "generate": "node main/generateData.ts > db.json",
+    "server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {
