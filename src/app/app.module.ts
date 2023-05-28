@@ -8,7 +8,7 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbActionsModule,
-  NbMenuModule, NbButtonModule, NbUserModule
+  NbMenuModule, NbButtonModule, NbUserModule, NbCardModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +21,7 @@ import {
   NbPasswordAuthStrategy,
 } from '@nebular/auth';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
       ],
       forms: {},
     }),
+    NbCardModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
