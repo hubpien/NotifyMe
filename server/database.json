@@ -1,0 +1,38 @@
+{
+  "alerts": [
+    {
+      "id": 1,
+      "type": [
+        {
+          "crypto": [
+            {
+              "BTC": [
+                {
+                  "order":"20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+         "weather": [
+           {
+             "city":[
+               {
+                 "name": "Kraków",
+                 "temperature": "20"
+               }
+             ]
+           }
+         ]
+        }
+
+      ]
+
+    }
+  ],
+  "users": {
+    "name": "guest",
+    "password": "guest"
+  }
+}
