@@ -1,26 +1,20 @@
 {
   "crypto": [
     {
-      "BTC": [
-        {
-          "id": 1,
-          "order":"20"
-        },
-        {
-          "id": 2,
-          "order": "30"
-        }
-      ]
+      "id": 1,
+      "order":"20",
+      "currency": "BTC"
+    },
+    {
+      "id": 2,
+      "order": "30",
+      "currency": "ETH"
     }
   ],
   "weather": [
      {
-       "city":[
-         {
-           "name": "Kraków",
-           "temperature": "20"
-         }
-       ]
+       "city": "Kraków",
+       "temperature": "20"
      }
   ],
   "users": [
