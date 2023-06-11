@@ -8,7 +8,14 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbActionsModule,
-  NbMenuModule, NbButtonModule, NbUserModule, NbCardModule
+  NbMenuModule,
+  NbButtonModule,
+  NbUserModule,
+  NbCardModule,
+  NbListModule,
+  NbTabsetModule,
+  NbAccordionModule,
+  NbIconModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './home/home.component';
@@ -55,6 +62,10 @@ import {FormsModule} from "@angular/forms";
     }),
     NbCardModule,
     FormsModule,
+    NbListModule,
+    NbTabsetModule,
+    NbAccordionModule,
+    NbIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

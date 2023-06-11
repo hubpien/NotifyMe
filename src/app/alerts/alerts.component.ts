@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Alert} from "../../models/Alerts";
+import {CoinPriceService} from "../services/CoinPriceService";
+import {NbMenuItem} from "@nebular/theme";
 
 @Component({
   selector: 'app-alerts',
@@ -7,30 +9,26 @@ import {Alert} from "../../models/Alerts";
   styleUrls: ['./alerts.component.scss']
 })
 export class AlertsComponent {
-  alerts: Alert[] = []; // tutaj przechowujemy listę alertów
-
-  addAlert(city: string, alertType: string, value: string): void {
-    const newAlert: Alert = {isEditing: false, id: this.alerts.length, city, alertType, value };
-    this.alerts.push(newAlert);
-  }
-  startEditing(id: number): void {
-    const index = this.alerts.findIndex((alert) => alert.id === id);
-    if (index !== -1) {
-      this.alerts[index].isEditing = true;
+  items: NbMenuItem[] = [
+    {
+      title: "Price Alerts",
+      link: '/price'
+    },
+    {
+      title: "Orderbook",
+      link: '/orderbook',
+      icon: "layers-outline"
     }
+  ];
+  orders: any;
+
+  constructor(private orderbookService: CoinPriceService) {}
+
+  ngOnInit() {
+    this.orderbookService.getData(0.001).subscribe(order => {
+      console.log(order);
+      this.orders = order;
+    });
   }
 
-  editAlert(id: number, city: string, alertType: string, value: string): void {
-    const index = this.alerts.findIndex((alert) => alert.id === id);
-    if (index !== -1) {
-      this.alerts[index] = {isEditing: false, id, city, alertType, value };
-    }
-  }
-
-  deleteAlert(id: number): void {
-    const index = this.alerts.findIndex((alert) => alert.id === id);
-    if (index !== -1) {
-      this.alerts.splice(index, 1);
-    }
-  }
 }
