@@ -43,7 +43,8 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path:'home', component:HomeComponent,  },
-  { path:'alerts', component:AlertsComponent },
+  { path: 'alerts', loadChildren: () => import('./alerts/alerts.module').then(m => m.AlertsModule) },
+
   { path:'**', component:NotFoundComponent}
 ];
 

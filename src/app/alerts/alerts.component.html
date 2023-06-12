@@ -1,13 +1,20 @@
 
 <nb-layout>
-  <nb-layout-column class="colored-column-warning">
+  <nb-layout-column>
     <nb-card>
       <nb-menu [items]="items">
       </nb-menu>
     </nb-card>
   </nb-layout-column>
-  <nb-layout-column class="colored-column-danger">
-    <router-outlet>
-    </router-outlet>
+
+  <nb-layout-column>
+
+    <nb-card>
+      <nb-card-header>1</nb-card-header>
+      <nb-card-body>
+        <router-outlet>
+        </router-outlet>
+      </nb-card-body>
+    </nb-card>
   </nb-layout-column>
 </nb-layout>

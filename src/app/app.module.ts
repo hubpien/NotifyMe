@@ -15,7 +15,7 @@ import {
   NbListModule,
   NbTabsetModule,
   NbAccordionModule,
-  NbIconModule
+  NbIconModule, NbInputModule, NbSelectModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +29,9 @@ import {
 } from '@nebular/auth';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {FormsModule} from "@angular/forms";
+import { PriceAlertsComponent } from './price-alerts/price-alerts.component';
+import { OrderbookAlertsComponent } from './orderbook-alerts/orderbook-alerts.component';
+import { FormsDataAlertsComponent } from './forms-data-alerts/forms-data-alerts.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     AlertsComponent,
     NotFoundComponent,
+    PriceAlertsComponent,
+    OrderbookAlertsComponent,
+    FormsDataAlertsComponent,
 
   ],
   imports: [
@@ -66,6 +72,8 @@ import {FormsModule} from "@angular/forms";
     NbTabsetModule,
     NbAccordionModule,
     NbIconModule,
+    NbInputModule,
+    NbSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

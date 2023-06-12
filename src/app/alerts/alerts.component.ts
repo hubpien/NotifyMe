@@ -11,12 +11,13 @@ import {NbMenuItem} from "@nebular/theme";
 export class AlertsComponent {
   items: NbMenuItem[] = [
     {
-      title: "Price Alerts",
-      link: '/price'
+      title: "Price alerts",
+      link: 'price',
+      icon: "layers-outline"
     },
     {
-      title: "Orderbook",
-      link: '/orderbook',
+      title: "Orderbook alerts",
+      link: 'orderbook',
       icon: "layers-outline"
     }
   ];
