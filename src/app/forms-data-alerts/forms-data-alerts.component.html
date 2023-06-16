@@ -1,72 +1,40 @@
-<nb-card>
-  <nb-card-body class="example-items-rows">
-    <label>Send me an:&nbsp;
-      <nb-select placeholder="Mail">
-        <nb-option value="tost">
-          <!--        <img src="path_to_btc_image" alt="BTC" width="20" height="20">-->
-          Notify tost
-        </nb-option>
-        <nb-option value="email" disabled>
-          <!--        <img src="path_to_eth_image" alt="ETH" width="20" height="20">-->
-          Email
-        </nb-option>
-        <nb-option value="telegram" disabled>
-          <!--        <img src="path_to_xrp_image" alt="XRP" width="20" height="20">-->
-          Telegram
-        </nb-option>
-      </nb-select>
-
-    </label>
-    <br>
-    <br>
-    <label>As soon as:&nbsp;
-    <nb-select placeholder="BTC">
-      <nb-option value="btc">
-        <!--        <img src="path_to_btc_image" alt="BTC" width="20" height="20">-->
-        Bitcoin
-      </nb-option>
-      <nb-option value="eth" disabled>
-        <!--        <img src="path_to_eth_image" alt="ETH" width="20" height="20">-->
-        Ethereum
-      </nb-option>
-      <nb-option value="xrp" disabled>
-        <!--        <img src="path_to_xrp_image" alt="XRP" width="20" height="20">-->
-        Ripple
-      </nb-option>
+<form [formGroup]="notificationForm" (ngSubmit)="submitForm()">
+  <label>Send me an:&nbsp;
+    <nb-select formControlName="sendMethod" placeholder="Mail">
+      <nb-option value="tost">Notify tost</nb-option>
+      <nb-option value="email" disabled>Email</nb-option>
+      <nb-option value="telegram" disabled>Telegram</nb-option>
     </nb-select>
-    </label>
-    <br>
-    <br>
-    <label>goes:&nbsp;
-    <nb-select placeholder="above">
-      <nb-option value="more">
-        <!--        <img src="path_to_btc_image" alt="BTC" width="20" height="20">-->
-        Above
-      </nb-option>
-      <nb-option value="less">
-        <!--        <img src="path_to_eth_image" alt="ETH" width="20" height="20">-->
-        below
-      </nb-option>
+  </label>
+  <br>
+  <br>
+  <label>As soon as:&nbsp;
+    <nb-select formControlName="coinType" placeholder="BTC">
+      <nb-option value="btc">Bitcoin</nb-option>
+      <nb-option value="eth" disabled>Ethereum</nb-option>
+      <nb-option value="xrp" disabled>Ripple</nb-option>
     </nb-select>
-    </label>
-    <br> <br>
-    <label>the price of&nbsp;<input type="number" nbInput placeholder="0.00"></label>
-    <br><br>
-    <label>on&nbsp;
-    <nb-select placeholder="ByBit">
-      <nb-option value="Bybit">
-        <!--        <img src="path_to_btc_image" alt="BTC" width="20" height="20">-->
-        Bybit
-      </nb-option>
-      <nb-option value="Binance" disabled>
-        <!--        <img src="path_to_eth_image" alt="ETH" width="20" height="20">-->
-        Binance
-      </nb-option>
+  </label>
+  <br>
+  <br>
+  <label>Goes:&nbsp;
+    <nb-select formControlName="condition" placeholder="above">
+      <nb-option value="more">Above</nb-option>
+      <nb-option value="less">Below</nb-option>
     </nb-select>
-    </label>
-    <br><br>
-    <label>the price of:&nbsp;<input type="number" nbInput placeholder="0.00"></label>
-    <br>
-    <br>
-  </nb-card-body>
-</nb-card>
+  </label>
+  <br>
+  <br>
+  <label>The price of:&nbsp;<input type="number" formControlName="targetPrice" nbInput placeholder="0.00"></label>
+  <br>
+  <br>
+  <label>On&nbsp;
+    <nb-select formControlName="exchange" placeholder="ByBit">
+      <nb-option value="Bybit">Bybit</nb-option>
+      <nb-option value="Binance" disabled>Binance</nb-option>
+    </nb-select>
+  </label>
+  <br>
+  <br>
+  <button type="submit">Submit</button>
+</form>

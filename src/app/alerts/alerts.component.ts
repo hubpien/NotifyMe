@@ -26,10 +26,10 @@ export class AlertsComponent {
   constructor(private orderbookService: CoinPriceService) {}
 
   ngOnInit() {
-    this.orderbookService.getData(0.001).subscribe(order => {
+    /*this.orderbookService.getData(0.001).subscribe(order => {
       console.log(order);
       this.orders = order;
-    });
+    });*/
   }
 
 }

@@ -15,7 +15,7 @@ import {
   NbListModule,
   NbTabsetModule,
   NbAccordionModule,
-  NbIconModule, NbInputModule, NbSelectModule
+  NbIconModule, NbInputModule, NbSelectModule, NbToastrModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +32,9 @@ import {FormsModule} from "@angular/forms";
 import { PriceAlertsComponent } from './price-alerts/price-alerts.component';
 import { OrderbookAlertsComponent } from './orderbook-alerts/orderbook-alerts.component';
 import { FormsDataAlertsComponent } from './forms-data-alerts/forms-data-alerts.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {CoinPriceService} from "./services/CoinPriceService";
+import {BybitService} from "./services/OrderBookService"; // new import
 
 @NgModule({
   declarations: [
@@ -74,8 +77,13 @@ import { FormsDataAlertsComponent } from './forms-data-alerts/forms-data-alerts.
     NbIconModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbToastrModule.forRoot({}),
   ],
-  providers: [],
+  providers: [
+    CoinPriceService,
+    BybitService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
