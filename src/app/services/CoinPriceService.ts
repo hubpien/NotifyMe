@@ -2,17 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {filter, map, Observable, Subject} from 'rxjs';
 import { WebSocketConfig } from '../interfaces/WebSocketConfig.config';
-
-type Order = [string, string];
-
-class Data {
-  s: string;
-  b: Order[];
-  a: Order[];
-  u: number;
-  seq: number;
-  data: any;
-}
+import { Order } from 'src/models/Orders';
+import { Data } from 'src/models/Data';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +13,7 @@ export class CoinPriceService {
   private subject: Subject<Data>;
 
   constructor() {
-    this.initializeWebSocket('wss://stream-testnet.bybit.com/v5/public/spot', ['orderbook.1.BTCUSDT']);
+    this.initializeWebSocket('wss://stream-testnet.bybit.com/v5/public/spot', ['publicTrade.BTCUSDT']);
   }
 
   private initializeWebSocket(url: string, subscribeArgs: string[]): void {
@@ -60,37 +51,17 @@ export class CoinPriceService {
   }
 
   private processData(data: any, amount: number, condition: string): any {
-    if (data && data.data) {
-      const ask = data.data.a && data.data.a.length > 0 ? data.data.a[0] : null;
-      const bid = data.data.b && data.data.b.length > 0 ? data.data.b[0] : null;
-
-      if (ask && bid) {
-        return this.compareAmounts(ask, bid, amount, condition);
-      } else if (ask && !bid) {
-        return this.compareAmount(ask, amount, 'a', condition);
-      } else if (!ask && bid) {
-        return this.compareAmount(bid, amount, 'b', condition);
+    if (data && data.data && Array.isArray(data.data) && data.data.length > 0) {
+      const firstItem = data.data[0];
+      if (firstItem && firstItem.hasOwnProperty('p')) {
+        return this.compareAmount(firstItem.p, amount, condition);
       }
     }
 
     return null;
   }
 
-  private compareAmounts(ask: Order, bid: Order, amount: number, condition: string): any {
-    
-    if(condition === 'more'){
-      const asks = parseFloat(ask[1]) >= amount ? ask[1] : null;
-      const bids = parseFloat(bid[1]) >= amount ? bid[1] : null;
-      this.returnsAmounts(asks, bids);
-    }
-    else if(condition === 'less'){
-      const asks = parseFloat(ask[1]) <= amount ? ask[1] : null;
-      const bids = parseFloat(bid[1]) <= amount ? bid[1] : null;
-      this.returnsAmounts(asks, bids);
-    }
-  }
-
-  private compareAmount(order: any, amount: number, type: string, condition: string): any {
+  private compareAmount(order: any, amount: number, condition: string): any {
     if(condition === 'more'){
       const result = parseFloat(order[1]) >= amount ? order[1] : null;
       return result != null ? result : null;
@@ -98,13 +69,6 @@ export class CoinPriceService {
     else if(condition === 'less'){
       const result = parseFloat(order[1]) <= amount ? order[1] : null;
       return result != null ? result : null;
-    }
-  }
-
-  private returnsAmounts(asks: any, bids: any): any {
-    
-    if (asks != null || bids != null){
-      return {a: asks, b: bids};
     }
   }
 }

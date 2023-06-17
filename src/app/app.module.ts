@@ -34,7 +34,6 @@ import { OrderbookAlertsComponent } from './orderbook-alerts/orderbook-alerts.co
 import { FormsDataAlertsComponent } from './forms-data-alerts/forms-data-alerts.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {CoinPriceService} from "./services/CoinPriceService";
-import {BybitService} from "./services/OrderBookService"; // new import
 
 @NgModule({
   declarations: [
@@ -82,7 +81,7 @@ import {BybitService} from "./services/OrderBookService"; // new import
   ],
   providers: [
     CoinPriceService,
-    BybitService
+    
   ],
   bootstrap: [AppComponent]
 })

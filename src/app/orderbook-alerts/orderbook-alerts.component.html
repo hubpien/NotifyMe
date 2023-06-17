@@ -1,2 +1,44 @@
-<p>orderbook-alerts works!</p>
-<app-forms-data-alerts></app-forms-data-alerts>
+<p><strong>Orderbook alert</strong></p><br>
+<p>Monitor the Orderbook from specific level.</p><br>
+
+<form [formGroup]="notificationForm" (ngSubmit)="submitForm()">
+    <label>Send me an:&nbsp;
+      <nb-select formControlName="sendMethod" placeholder="Mail">
+        <nb-option value="tost">Notify tost</nb-option>
+        <nb-option value="email" disabled>Email</nb-option>
+        <nb-option value="telegram" disabled>Telegram</nb-option>
+      </nb-select>
+    </label>
+    <br>
+    <br>
+    <label>As soon as:&nbsp;
+      <nb-select formControlName="coinType" placeholder="BTC">
+        <nb-option value="btc">Bitcoin</nb-option>
+        <nb-option value="eth" disabled>Ethereum</nb-option>
+        <nb-option value="xrp" disabled>Ripple</nb-option>
+      </nb-select>
+    </label>
+    <br>
+    <br>
+    <label>Goes:&nbsp;
+      <nb-select formControlName="condition" placeholder="above">
+        <nb-option value="more">Above</nb-option>
+        <nb-option value="less">Below</nb-option>
+      </nb-select>
+    </label>
+    <br>
+    <br>
+    <label>order value:&nbsp;<input type="number" formControlName="targetPrice" nbInput placeholder="0.00"></label>
+    <br>
+    <br>
+    <label>On&nbsp;
+      <nb-select formControlName="exchange" placeholder="ByBit">
+        <nb-option value="Bybit">Bybit</nb-option>
+        <nb-option value="Binance" disabled>Binance</nb-option>
+      </nb-select>
+    </label>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  

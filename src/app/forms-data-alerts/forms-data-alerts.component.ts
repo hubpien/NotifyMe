@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CoinPriceService } from '../services/CoinPriceService';
-import { BybitService } from '../services/OrderBookService';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbComponentStatus, NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService } from '@nebular/theme';
+import { OrderBookService } from '../services/OrderBookService';
 
 @Component({
   selector: 'app-forms-data-alerts',
@@ -17,7 +17,7 @@ export class FormsDataAlertsComponent{
   constructor(
     private formBuilder: FormBuilder,
     private coinPriceService: CoinPriceService,
-    private bybitService: BybitService,
+    private orderBookService: OrderBookService,
     private toastrService: NbToastrService
   ) {
     this.notificationForm = this.formBuilder.group({
@@ -40,14 +40,14 @@ export class FormsDataAlertsComponent{
       console.log(formData.targetPrice);
 
       if (formData.coinType === 'btc') {
-        this.coinPriceService.getData(formData.targetPrice, formData.condition).subscribe(order => {
+        this.orderBookService.getData(formData.targetPrice, formData.condition).subscribe(order => {
           console.log(order);
           if (order !== undefined && order !== null ) {
             this.showToast(order, this.positions.BOTTOM_RIGHT, 'success');
           }
         });
       } else {
-        //this.bybitService.someMethod(formData);
+        //this.coinPriceService.someMethod(formData);
       }
     }
   }
